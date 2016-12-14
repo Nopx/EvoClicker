@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="jquery-3.1.1.min.js"></script>
 	<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
-	
+	<script src="gameScript.js"></script>
 
 	<script>
-
-	function init() {
-		var stage = new createjs.Stage("demoCanvas");
-		var circle = new createjs.Shape();
-		circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
-		circle.addEventListener("click", function(event) {
-							document.getElementById("clickCounter").innerHTML = parseInt(document.getElementById("clickCounter").innerHTML)+1;
-						});
-		circle.x = 100;
-		circle.y = 100;
-		stage.addChild(circle);
-		stage.update();
-	}
+		function init() {
+			start();
+		}
 	</script>
-
 </head>
 
 <body onload="init();">
