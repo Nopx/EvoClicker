@@ -1,0 +1,54 @@
+body{
+  background-color: #000055;
+}
+#mainCanvas{
+  position:fixed;
+  width: 50%;
+  height:70%;
+  top: 15%;
+  bottom: 15%;
+  left: 25%;
+  right: 25%;
+  background-color: #ffffff;
+}
+#topDiv{
+  position:fixed;
+  top:0;
+  left:25%;
+  right:25%;
+  bottom:85%;
+  background-color: #000000;
+}
+#leftDiv{
+  position:fixed;
+  left:0;
+  right:75%;
+  top:0;
+  bottom:0;
+  background-color: #550000;
+}
+#rightDiv{
+  position:fixed;
+  right:0;
+  top:0;
+  bottom:0;
+  left:75%;
+  background-color: #550000;
+  overflow-y: auto;
+}
+#bottomDiv{
+  position:fixed;
+  bottom:0;
+  left:25%;
+  right:25%;
+  top:85%;
+  background-color: #005500;
+}
+
+#clickCounter{
+  -webkit-box-align:center;
+  -webkit-box-pack:center;
+  display:-webkit-box;
+  font-size: 36px;
+  color: #ffffff;
+}
