@@ -12,6 +12,9 @@ function start(){
   console.log(clicks);
   if(isNaN(clicks)) clicks = 0;
   $(clickCounter).html(clicks);
+  loadPhase('phase1');
+
+  initializeStructures();
 
   stage = new createjs.Stage("mainCanvas");
   var circle = new createjs.Shape();
@@ -21,6 +24,27 @@ function start(){
   circle.y = stage.canvas.height/2;
   stage.addChild(circle);
   stage.update();
+}
+
+function loadPhase(phaseName){
+  var client = new XMLHttpRequest();
+  client.open('GET', phaseName+'.dat');
+  client.onreadystatechange = function() {
+    loadPhaseData(client.responseText);
+  }
+  client.send();
+}
+
+function loadPhaseData(phaseData){
+  var structureInputArray = phaseData.split("\n");
+  for(var i=0; i<structureInputArray.length; i++){
+    structureInputArray[i] = structureInputArray[i].split(",");
+  }
+  for(var i=0; i<structureInputArray.length; i++){
+    if(structureInputArray[i][0]=="")
+      structureInputArray.splice(i,1);
+  }
+  structures = structureInputArray;
 }
 
 function clickFunction(){
@@ -36,6 +60,13 @@ function saveGlobalState(){
 }
 
 function initializeStructures(){
+  if(structures,length<=0) return;
+  for(var i =0; i<structures.length; i++){
+    var html = "";//TODO
+  }
+}
+
+function buildStructuresFromCookie(){
   var structureList = getCookie(structureCookie).split(",");
   for(var i =0; i< structureList.length; i++){
     var structure = structureList[i].split(":");
