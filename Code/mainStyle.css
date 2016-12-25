@@ -52,3 +52,7 @@ body{
   font-size: 36px;
   color: #ffffff;
 }
+
+.structureShopElement table{
+  border: 1px solid black;
+}

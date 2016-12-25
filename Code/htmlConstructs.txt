@@ -1,0 +1,19 @@
+shopElement::<div class="structureShopElement">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>Clicks&#47s</td>
+      <td>Price</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ELEMENTNAME</td>
+      <td>ELEMENTCLICKS</td>
+      <td>ELEMENTPRICE</td>
+      <td>
+        <button class="shopButton" onclick="buyStructure('ELEMENTINDEX');">Buy</button>
+      </td>
+    </tr>
+  </table>
+</div>
+;;
