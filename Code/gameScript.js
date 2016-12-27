@@ -15,6 +15,7 @@
   var structuresBought = {};
   var structures = {};
   var structuredInitialized = false;
+  var ready = false;
 
 function start(){
   clicks = parseInt(getCookie(clickCookie));
@@ -39,6 +40,7 @@ function start(){
 }
 
 function update(){
+  if(!ready) return;
   var time = new Date().getTime();
   var timeDifference = time-lastUpdateTime;
   var seconds = timeDifference/1000;
@@ -56,6 +58,7 @@ function initReady(){
     //do init stuff
     initializeStructures();
     buildStructuresFromCookie();
+    ready = true;
   }
 }
 
@@ -123,11 +126,11 @@ function initializeStructures(){
 
 function buyStructure(index){
   buildStructure(structures[index][0],1);
-  pay(structures[index][1]);
+  pay(structures[index][2]);
 }
 
 function pay(amount){
-  //TODO
+  clicks -= amount;
 }
 
 function earn(amount){
@@ -150,7 +153,7 @@ function buildStructuresFromCookie(){
 }
 
 function buildStructure(structureId,structureAmount){
-  if(structuresBought[structureId]==null) structuresBought[structureId]=structureAmount;
+  if(structuresBought[structureId]==null) structuresBought[structureId]=parseInt(structureAmount);
   else structuresBought[structureId] += structureAmount;
 
   var newClickPerSecond = 0;
